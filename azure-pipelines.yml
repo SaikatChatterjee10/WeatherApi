@@ -1,6 +1,6 @@
 name: sampledemo_$(Date:yyyyMMdd)$(Rev:r)
 trigger: 
- -master
+  - master
 pool:
   name:Default
 steps:
