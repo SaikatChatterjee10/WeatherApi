@@ -1,0 +1,10 @@
+name: sampledemo_$(Date:yyyyMMdd)$(Rev:r)
+trigger: 
+ -master
+pool:
+  name:Default
+steps:
+- task: MSBuild@1
+  inputs:
+    solution: '**/*.sln'
+
