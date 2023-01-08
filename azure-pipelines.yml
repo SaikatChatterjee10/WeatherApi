@@ -4,7 +4,9 @@ trigger:
 pool:
   name:Default
 steps:
-- task: MSBuild@1
+- task: VSBuild@1
   inputs:
-    solution: '**/*.sln'
-
+    solution: '**\*.sln'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package   /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
+    platform: 'any cpu'
+    configuration: 'release'
