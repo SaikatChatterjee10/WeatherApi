@@ -2,7 +2,7 @@ name: sampledemo_$(Date:yyyyMMdd)$(Rev:r)
 trigger: 
   - master
 pool:
-  name: custom-agent
+  name: selfhostedservice
 steps:
 - task: VSBuild@1
   inputs:
