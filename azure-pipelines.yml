@@ -1,3 +1,12 @@
-- task: DotNetCoreCLI@2
+name: sampledemo_$(Date:yyyyMMdd)$(Rev:r)
+trigger: 
+  - master
+pool:
+  name: custom-agent
+steps:
+- task: VSBuild@1
   inputs:
-    command: 'build'
+    solution: '**\*.sln'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package   /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
+    platform: 'any cpu'
+    configuration: 'release'
